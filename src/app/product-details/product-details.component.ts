@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Product, products } from '../products';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -13,7 +14,9 @@ export class ProductDetailsComponent implements OnInit {
 
   constructor(
     //ActivatedRouteは、products のデータとルート情報を組み合わせて、各商品の詳細を表示する
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    //カート内のデータ管理用のサービス
+    private cartService: CartService
   ) {}
 
   //ngOnInitとは、ディレクティブやコンポーネントが変化するタイミングで、コールバックを設定できる仕組み
@@ -27,5 +30,14 @@ export class ProductDetailsComponent implements OnInit {
     this.product = products.find(
       (product) => product.id === productIdFromRoute
     );
+  }
+
+  //addToCart() メソッドは次の3つのことを行います：
+  //現在の product を受け取ります。
+  //カートサービスの #addToCart() メソッドを使用して商品をカートに追加します。
+  //商品がカートに追加されたというメッセージを表示します。
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+    window.alert('Your product has been added to the cart!');
   }
 }

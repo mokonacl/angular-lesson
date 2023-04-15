@@ -1,4 +1,5 @@
 <h2>Products</h2>
+<hr />
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.
@@ -17,8 +18,16 @@ can be found in the LICENSE file at https://angular.io/license
   </h3>
   <p *ngIf="product.price">　price: $ {{ product.price }}</p>
   <p *ngIf="product.description">　Description: {{ product.description }}</p>
-  <button type="button" (click)="share()">Share</button>
-  <app-product-alerts [product]="product" (notify)="onNotify()">
-  </app-product-alerts>
+
+  <table>
+    <tr>
+      <td><button type="button" (click)="share()">Share</button></td>
+      <td>
+        <app-product-alerts [product]="product" (notify)="onNotify()">
+        </app-product-alerts>
+      </td>
+    </tr>
+  </table>
+
   <br />
 </div>
