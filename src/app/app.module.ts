@@ -14,10 +14,12 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
+      //RouterModuleは、リクエストされたURLに応じて、コンポーネントを決定する
       { path: '', component: ProductListComponent },
       { path: 'products/:productId', component: ProductDetailsComponent },
     ]),
   ],
+  //
   declarations: [
     AppComponent,
     TopBarComponent,
