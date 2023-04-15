@@ -1,4 +1,4 @@
 # angular-lesson
 
-このレポジトリは、Angularの公式のものとなります。
+このリポジトリは、Angularの公式のものとなります。
 https://angular.jp/start
